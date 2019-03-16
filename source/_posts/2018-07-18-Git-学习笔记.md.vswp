@@ -639,7 +639,7 @@ To github.com:michaelliao/learngit.git
 我们工作区的修改的内容add后是存储在git对象库中的,暂存区(索引)只是指向对象,并不实际存储文件?
 
 # 封装Git命令
-
+shiyong
 
 # 参考 #
 >[Git diff--和++具体解释](https://blog.csdn.net/lovezbs/article/details/46492933)
