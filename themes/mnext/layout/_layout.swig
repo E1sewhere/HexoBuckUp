@@ -107,7 +107,7 @@
           "/images/background/1.jpg",
           "/images/background/2.jpg",
           "/images/background/3.jpg"
-    ], { duration: 10000, fade: 1500 }); 
+    ], { duration: 30000, fade: 1500 }); 
 </script>
 
 
