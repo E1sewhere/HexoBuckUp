@@ -61,6 +61,7 @@ image:
  
 ## 我的一部分配置文件
  这部分是我的一部分custom.styl代码，你可以参考我的代码做一些简单的静态样式配色修改，当你掌握css后就可以使用开发者工具坐到页面内任何元素的调整，建议使用chrome浏览器。
+ 这个文件内的注释可以找到很多配置,其他没有包含的配置会在后面的零散配置补充
   **实现方法：** 修改文件 >*\themes\next\source\css\_custom\custom.styl
   
  直接添加如下代码，根据你的需要修改参数
@@ -294,7 +295,7 @@ on_success:
 ## 自动化push
 使用windows每次push的时候都要,git add git commit git push
 所以我使用脚本封装了命令,使用脚本提交
-详见: [封装Git命令]:(https://e1sewhere.github.io/2018/07/18/Git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#fzgit)
+详见:[封装Git命令](https://e1sewhere.github.io/2018/07/18/Git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#fzgit)
 
 
 ## 零散的一些设置
