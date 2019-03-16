@@ -279,12 +279,22 @@ on_success:
 
 最后，把这个文件提交到Github上就可以测试了！在AppVeyor的首页可以看到部署的过程和结果~
 
+
+### 问题
+有可能提交后我们发现博客完全空白,查看content repo仓库后发现`index.html`和them目录下的`next`目录空白.
+原因是我们的next主题是clon下来的,是一个仓库,所以不能git pull.两个解决方法:
+方法一:删除目录下的 `.git`隐藏文件夹(删除了我依然不行)
+方法儿:修改next目录名称,我改为`mnext`,然后修改博客配置文件中的`next`为`mnext`
+问题解决了.
+
+### 应用
 以后push源文件后博客会在几分钟内更新.
+同时不再本地环境的时候我们可以直接上github我们的仓库里直接编辑文md件,虽然不方便但依然可以做简单的修改.
 
 ## 自动化push
 使用windows每次push的时候都要,git add git commit git push
 所以我使用脚本封装了命令,使用脚本提交
-详见: [封装Git命令]:(haha)
+详见: [封装Git命令]:(https://e1sewhere.github.io/2018/07/18/Git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#fzgit)
 
 
 ## 零散的一些设置
