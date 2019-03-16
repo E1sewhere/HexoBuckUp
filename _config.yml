@@ -102,9 +102,10 @@ theme: mnext
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repository: git@github.com:E1sewhere/E1sewhere.github.io.git
   branch: master
+- type: baidu_url_submitter ## 这是新加的
   
   
   # 自动生成sitemap
@@ -112,3 +113,21 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+  
+  # 百度提交
+baidu_url_submit:
+  count: 10 ## 提交最新的一个链接
+  host: e1sewhere.github.io ## 在百度站长平台中注册的域名
+  token: Dvtbr1m0iQISGOR4 ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+
+# Hexo跨博客文章推荐插件
+recommended_posts:
+  server: https://api.truelaurel.com #后端推荐服务器地址
+  timeoutInMillis: 10000 #服务时长，超过此时长，则使用离线推荐模式
+  internalLinks: 3 #内部文章数量
+  externalLinks: 1 #外部文章数量
+  fixedNumber: false
+  autoDisplay: true #自动在文章底部显示推荐文章
+  excludePattern: []
+  titleHtml: <h1>RECOMMEND<span style="font-size:0.45em; color:gray">（power by <a href="https://github.com/huiwang/hexo-recommended-posts">hexo recommended</a>）</span></h1> #自定义标题

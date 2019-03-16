@@ -1,3 +1,4 @@
+vnote_backup_file_826537664 E:/AElseworld/Code/Github/myfirst_hexo/source/_posts/2018-03-04-建站小记.md
 ---
 title: Hexo建站小记
 date: 2018-03-04 11:10:54
@@ -1202,6 +1203,8 @@ deploy:
 npm install hexo-recommended-posts --save
 ```
 
+#### 配置
+
 如果默认配置不能满足您的需求，您可以在博客根目录的`_config.yml`里覆盖默认配置：
 原文给出的配置代码有问题,我做了修改.
 
@@ -1221,6 +1224,17 @@ recommended_posts:
 其中 `excludePattern` 可以添加想要被过滤的链接的正则表达式, 如配置为 `["example.com"]`, 则所有包含 `example.com` 的链接都会从推荐文章中过滤掉.
 
 `fixedNumber` 字段用来控制是否返回固定数量的推荐文章, 如果默认推荐文章不够的话会填充当前文章的前后文章作为推荐文章.
+
+##### 下载推荐文章列表
+
+在编辑完新的文章之后，使用如下命令获取推荐列表
+
+```
+hexo recommend
+```
+为了简便我将这个命令封装到了
+[封装Git命令](https://e1sewhere.github.io/2018/07/18/Git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#fzgit)
+直接在`git add`前添加一行`hexo recommend`
 
 ## 源码备份
 部分来源:http://feg.netease.com/archives/634.html

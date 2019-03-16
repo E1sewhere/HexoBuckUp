@@ -13,6 +13,7 @@ install:
   - npm install hexo-cli -g
 
 build_script:
+  - hexo recommend
   - hexo generate
 
 artifacts:
