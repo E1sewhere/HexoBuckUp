@@ -169,6 +169,7 @@ AddType  application/x-httpd-php    .jpg
 然后上传一个`4.jpg`的一句话,成功
 使用菜刀连接,成功,文件被服务器当作php执行了.
 <span id="less5"></span>
+
 ## pass5 
 依然判断是服务器检查
 我们先上传`.php3,.phptml`都是失败了.
