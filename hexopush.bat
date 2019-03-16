@@ -10,7 +10,7 @@ git add .
 git commit -m "%des%"
 echo 正在提交:%des%
 git push origin master
-echo "finshished!"
+echo "finished!"
 
 pause>nul
 cls & goto input
