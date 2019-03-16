@@ -6,6 +6,7 @@ set /p des=输入提交描述ENTER结束:
 echo "begin it ..."
 E:
 cd E:\AElseworld\Code\Github\myfirst_hexo
+git checkout master
 git add .
 git commit -m "%des%"
 echo 正在提交:%des%
