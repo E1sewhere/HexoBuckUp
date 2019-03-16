@@ -655,8 +655,7 @@ set /p des=输入提交描述ENTER结束:
 echo "begin it ..."
 E:
 cd E:\AElseworld\Code\Github\myfirst_hexo
-::每次提交前切换到master分支
-git checkout master
+
 git add .
 git commit -m "%des%"
 echo 正在提交:%des%
@@ -666,6 +665,17 @@ echo "finshished!"
 pause>nul
 cls & goto input
 ```
+使用这个脚本只需要修改下你的目录就好了,这两行:
+
+```
+E:
+cd E:\AElseworld\Code\Github\myfirst_hexo
+```
+
+同时确保当前分支在 `master`分支.
+
+以后提交就只需要双击bat,输入提交描述就好了.
+![](https://e1sewhere.github.io/images/033.png)
 
 # 参考 #
 >[Git diff--和++具体解释](https://blog.csdn.net/lovezbs/article/details/46492933)
