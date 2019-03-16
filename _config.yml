@@ -48,6 +48,9 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - README.md
+  - CNAME
+  - baidu_verify_14JSy8Fa9y.html #下载的文件名
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
