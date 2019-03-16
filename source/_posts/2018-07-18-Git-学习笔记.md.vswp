@@ -638,8 +638,32 @@ To github.com:michaelliao/learngit.git
 暂存区是否相当于一个临时版本库,存储了还没有commit的修改,我们提交到版本库的修改都是从暂存区提交的?
 我们工作区的修改的内容add后是存储在git对象库中的,暂存区(索引)只是指向对象,并不实际存储文件?
 
-# 封装Git命令
-shiyong
+# 封装Git命令 
+<span id="fzgit"><span>
+在win下直接用bat批处理封装几个命令.
+给一个提交hexo源码的的例子
+创建一个`.bat`文件,复制如下代码
+
+```bat
+:input
+title hexo源码自动提交
+
+set /p des=输入提交描述ENTER结束:
+
+echo "begin it ..."
+E:
+cd E:\AElseworld\Code\Github\myfirst_hexo
+::每次提交前切换到master分支
+git checkout master
+git add .
+git commit -m "%des%"
+echo 正在提交:%des%
+git push origin master
+echo "finshished!"
+
+pause>nul
+cls & goto input
+```
 
 # 参考 #
 >[Git diff--和++具体解释](https://blog.csdn.net/lovezbs/article/details/46492933)

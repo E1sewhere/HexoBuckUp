@@ -279,7 +279,13 @@ on_success:
 
 最后，把这个文件提交到Github上就可以测试了！在AppVeyor的首页可以看到部署的过程和结果~
 
-..
+以后push源文件后博客会在几分钟内更新.
+
+## 自动化push
+使用windows每次push的时候都要,git add git commit git push
+所以我使用脚本封装了命令,使用脚本提交
+详见: [封装Git命令]:()
+
 
 ## 零散的一些设置
 
