@@ -381,7 +381,7 @@ if(in_array($file_ext,$ext_arr)){
 <span id="pass12"> </span>
 ## pass12
 通过我不知道的某种方法,我们判断了这是截断上传,而且是通过`post`方法提交参数的截断上传.
-由于post方法不会自动将`%20`作为截断符,我们需要直接在hex 中添加截断符
+由于post方法不会自动将`%00`作为截断符,我们需要直接在hex 中添加截断符
 实际操作方法很简单
 将burp拦截的包发送到repeater,修改raw中的
 
@@ -422,6 +422,7 @@ Content-Disposition: form-data; name="save_path"
 上传成功了,使用burp查看,被重命名了.
 
 ### 制作文件包含入口
+虽然也可以使用`.htaccess`但是要求使用文件包含
 由于没有发现pass13页面,本身有文件包含入口.所以我自己构造了一个包含文件包含漏洞的php页面.
 
 ```
