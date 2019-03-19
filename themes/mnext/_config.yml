@@ -381,12 +381,12 @@ changyan:
 # Valine.
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
-valine:
-  enable: false
-  appid:
-  appkey:
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
+valine: 
+  enable: true
+  appid: RdoHhlfsod7gkQO5TbaSheUY-gzGzoHsz
+  appkey: 9wRib5jaIuQL2dVmtXx24smG
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: true # Verification code
   placeholder: Just go go # comment box placeholder
   avatar:  # gravatar style
   guest_info: nick,mail,link # custom comment header
@@ -399,7 +399,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zNDM1MS8xMDg4OA==
+# livere_uid: MTAyMC8zNDM1MS8xMDg4OA==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -810,7 +810,6 @@ vendors:
 # 文章末尾添加“本文结束”标记
 passage-end-tag:
   enabled: true
-
 
 
 
