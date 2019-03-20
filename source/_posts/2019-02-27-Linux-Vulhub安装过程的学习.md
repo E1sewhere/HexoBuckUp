@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 笔记
 ---
 搭建Vulhub,以及遇到的问题,熟悉一点linux
 <!--more-->

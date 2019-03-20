@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 笔记
 ---
 本文记录了练习upload labs 的过程,已经学习完了,有很多问题没有解决,有一些pass也看得很走马观花,但是时间不多先学习其他的.
 <!--more-->

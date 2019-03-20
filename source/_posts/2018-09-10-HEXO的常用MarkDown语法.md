@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 笔记
 ---
 *不会详细介绍,只是简明的写下用法与注意事项,本文适合,已经有MD写作经验的人,如果需要详细了解学习[请参看](https://markdown.tw/)*
 <!--more-->

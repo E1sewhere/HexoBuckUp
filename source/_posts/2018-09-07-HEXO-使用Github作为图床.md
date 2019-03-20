@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 解决方法
 ---
 想把hexo的文章同步到博客园,但是文章的图片使用本地链接,在博客园就不能使用了,使用图床时发现.国内的图床都需要身份验证,不是很喜欢这样,所以暂时就使用github的page直接作为图床吧.
 <!--more-->

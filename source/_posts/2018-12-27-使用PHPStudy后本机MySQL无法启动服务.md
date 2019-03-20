@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 解决方法
 ---
 前段时间使用了下PHPStudy,今天做测试发现本机装的MySQL居然无法启动了.本文记录解决的流程
 

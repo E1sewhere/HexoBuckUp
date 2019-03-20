@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 解决方法
 ---
 耗费将近两个小时把AS安装完毕并且运行成功了第一个HelloWorld.遇到了一些问题.此处做一个笔记.
 <!--more-->

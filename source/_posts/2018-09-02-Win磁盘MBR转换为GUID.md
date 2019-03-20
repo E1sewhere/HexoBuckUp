@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 解决方法
 ---
 *为了玄学加快pc启动速度我想把bios从传统启动改为efi,同时系统盘变为gtp,本文记录了如何在保留系统文件的同时无损转换gtp,防止以后又查资料*
 **搞机有风险,请务必做好备份,,推荐使用dism++的备份,请看我上一篇[win 备份 重装](https://e1sewhere.github.io/2018/09/01/WIN-%E5%A4%87%E4%BB%BD-%E9%87%8D%E8%A3%85/)的介绍**

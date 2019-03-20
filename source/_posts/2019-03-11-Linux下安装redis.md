@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 笔记
 ---
 安装redis
 <!--more-->

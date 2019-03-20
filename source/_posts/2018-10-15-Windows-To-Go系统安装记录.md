@@ -7,6 +7,8 @@ description:
 keywords:
 comments:
 image:
+categories:
+  - 教程
 ---
 
 本文记录了我安装WTG系统的坑与过程,使用的WTG辅助工具,~~写本文时还没体验系统~~,目前使用了U盘和机械硬盘.
