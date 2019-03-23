@@ -28,5 +28,5 @@ image:
 编码解码绕过
 
 ## Bypass CDN查找原IP
-由于cdn不可能覆盖的非常完全，那么可以采用国外多地ping的方式，或者多收集一些
+由于cdn可能覆盖的非常完全，那么可以采用国外多地ping的方式，或者多收集一些
 小国家的冷门dns然后nslookup domain.com dnsserver。

@@ -681,8 +681,13 @@ content-dispositon:form-data; name="file"; filename="shell.jpg"
 
 ## 系统特性
 ### windows特殊字符
-当我们上传一个文件的filename为shell.php{%80-%99}时(这个%80是哈希要用hex编辑)：
-waf可能识别{%80-%99},但是window会识别为空格,而后缀名的空格会被windows忽略.
+当我们上传一个文件的filename为
+
+```
+shell.php{%80-%99}
+```
+时(这个%80是哈希要用hex编辑)：
+waf可能识别`%80-%99`,但是window会识别为空格,而后缀名的空格会被windows忽略.
 
 ### exee扩展名
 上传.exe文件通常会被waf拦截，如果使用各种特性无用的话，那么可以把扩展名改
@@ -721,6 +726,8 @@ shell.asp;王王王王王王王王王王王王王王王王王王王王王王王�
 ## wafbypass_upload一些总结绕过
 
 在这里放上个人之前总结的30个上传绕过姿势：
+
+```
 1. filename在content-type下面
 2. .asp{80-90}
 3. NTFS ADS
@@ -751,3 +758,4 @@ shell.asp;王王王王王王王王王王王王王王王王王王王王王王王�
 28. file\nname="php.php"
 29. head头content-type空格:
 30. form-data字段与name字段交换位置
+```
