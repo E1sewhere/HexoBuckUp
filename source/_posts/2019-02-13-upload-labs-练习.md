@@ -617,3 +617,137 @@ if(isset($_POST['submit'])){
 http://999.999.999.999/upload-labs/100.php.7z
 ```
 就执行代码了.
+
+# upload bypass
+
+## waf检测范围
+请求的url
+Boundary边界
+MIME类型
+文件扩展名
+文件内容
+
+测试时的准备工作：
+什么么语言？什么容器？什么系统？都什么版本？
+上传文件都可以上传什么格式的文件？还是允许上传任意类型？
+上传的文件会不会被重命名或者二次渲染？
+
+## 容器特性
+
+### apache1.x 2.x文件后缀解析漏洞
+Apache在以上版本中，解析文件名的方式是从后向前识别扩展名，直到遇见Apache可识别的扩展名为止
+
+### ISS6.0解析缺陷
+目录名包含 .asp 、 .asa 、 .cer 的话，则该目录下的所有文件都将按照asp解析
+例如`c:\wwwroot\cer.cer\haha.jpg`
+这个文件就会被解析为`.asp`文件
+
+文件名中如果包含 .asp; 、 .asa; 、 .cer; 则优先使用asp解析。
+例如： `asa.asa;asa.jpg`
+会被解析为`.asp`
+
+### Nginx解析漏洞
+Nginx 0.5.*
+Nginx 0.6.*
+Nginx 0.7 <= 0.7.65
+
+#### Nginx 0.8 <= 0.8.37
+以上Nginx容器的版本下，上传一个在waf白名单之内扩展名的文件shell.jpg，然后以
+shell.jpg%00.php进行请求。
+
+#### Nginx 0.8.41 – 1.5.6：
+以上Nginx容器的版本下，上传一个在waf白名单之内扩展名的文件shell.jpg，然后以
+shell.jpg%20%00.php进行请求。
+
+### PHP CGI解析漏洞
+IIS 7.0/7.5
+Nginx < 0.8.3
+
+以上的容器版本中默认php配置文件cgi.fix_pathinfo=1时，上传一个存在于白名单的扩展
+名文件shell.jpg，在请求时以shell.jpg/shell.php请求，会将shell.jpg以php来解析
+
+### 多个Content-Disposition
+
+在IIS的环境下，上传文件时如果存在`多个Content-Disposition`的话，IIS会取第一个
+Content-Disposition中的值作为接收参数，而如果waf只是取最后一个的话将会被绕过。
+
+```
+content-dispositon:form-data; name="file"; filename="shell.php"
+content-dispositon:form-data; name="file"; filename="shell.jpg"
+```
+
+### 结合.htaccess
+这个方法通常用于绕过waf黑名单的，配置该目录下所有文件都将其使用php来解析
+
+## 系统特性
+### windows特殊字符
+当我们上传一个文件的filename为shell.php{%80-%99}时(这个%80是哈希要用hex编辑)：
+waf可能识别{%80-%99},但是window会识别为空格,而后缀名的空格会被windows忽略.
+
+### exee扩展名
+上传.exe文件通常会被waf拦截，如果使用各种特性无用的话，那么可以把扩展名改
+为.exee再上传。
+
+### NTFS ADS特性
+ADS是NTFS磁盘格式的一个特性，用于NTFS交换数据流。在上传文件时，如果waf对请求
+正文的 filename 匹配不当的话可能会导致绕过
+
+| 上传文件名 | 服务器表面现象 | 生成文件内容 |
+| :------------- | :--------------------- | :---------------------------- |
+| test.php:a.jpg | 生成test.php | 空 |
+| test.php::$INDEX_ALLOCATION | 生成test.php文件夹 |  |
+| test.php::$DATA.jpg | 生成test.php | 原内容 |
+
+Windows在创建文件时，在文件名末尾不管加多少点(空格也是)都会自动去除，那么上传时filename
+可以这么写 shell.php...... 也可以这么写 shell.php::$DATA.......
+
+## 数据过长导致的绕过
+waf如果对`Content-Disposition`长度处理的不够好的话可能会导致绕过
+
+基于构造长文件名:
+如果web程序会将filename除le 扩展名的那段重命名的话，那么还可以构造更多的点、符号绕过重命名.
+
+```
+filname="shell.............................................................................................................................................................................................................................................................asp"
+```
+特殊的长文件名：
+文件名使用非字母数字，比如中文等最大程度的拉长，不行的话再结合一下其他的特性测试：
+
+```
+shell.asp;王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王王.jpg
+
+```
+
+## wafbypass_upload一些总结绕过
+
+在这里放上个人之前总结的30个上传绕过姿势：
+1. filename在content-type下面
+2. .asp{80-90}
+3. NTFS ADS
+4. .asp...
+5. boundary不一致
+6. iis6分号截断asp.asp;asp.jpg
+7. apache解析漏洞php.php.ddd
+8. boundary和content-disposition中间插入换行
+9. hello.php:a.jpg然后hello.<<<
+10. filename=php.php
+11. filename="a.txt";filename="a.php"
+12. name=\n"file";filename="a.php"
+13. content-disposition:\n
+14. .htaccess文件
+15. a.jpg.\nphp
+16. 去掉content-disposition的form-data字段
+17. php<5.3 单双引号截断特性
+18. 删掉content-disposition: form-data;
+19. content-disposition\00:
+20. {char}+content-disposition
+21. head头的content-type: tab
+22. head头的content-type: multipart/form-DATA
+23. filename后缀改为大写
+24. head头的Content-Type: multipart/form-data;\n
+25. .asp空格
+26. .asp0x00.jpg截断
+27. 双boundary
+28. file\nname="php.php"
+29. head头content-type空格:
+30. form-data字段与name字段交换位置
