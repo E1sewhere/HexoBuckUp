@@ -173,12 +173,23 @@ System.out.print();
 | 香蕉 | 苹果 |
 
 每个注意每行的内容与`|`之间要有空格,而且hexo上必须要在行首空一行,`:`是控制对其的,第一列左对齐,第二列居中
-```
+
 
 # 引入
 
 # iframe
 使用iframe引入其他网页,由于外部容器是固定大小,而且引入的网页通常比这个容器大,我尝试实现让引入的网页缩放,由于是跨域的请求所以无法对引入的网页实现内容的操作.尝试使用css特性transform的scale()来缩放,失败了.目前只能让iframe保留滚动条,这样至少可以通过滚动条查看页面所有内容.
+
 ```
 <iframe name="网易简报" width="100%" height="500px" frameborder="1" src="http://note.youdao.com/noteshare?id=34642bf8ba5bd1ba341d67b9fe35153a"> < /iframe>
 ```
+
+
+# 特殊&数学符号
+
+## 上下标
+MarkDown兼容HTML语言,直接使用HTML的语法
+
+下标A<sub>1</sub>: `A<sub>1</sub>`
+
+上标A<sup>1</sup>:`A<sup>1</sup>`
