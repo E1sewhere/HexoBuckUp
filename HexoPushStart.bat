@@ -6,11 +6,10 @@ set /p des=输入提交描述ENTER结束:
 echo "begin it ..."
 C:
 cd C:\Users\ese\Desktop\E1sewhere_Hexo
-git remote add origin git@github.com:e1sewhere/HexoBuckUp.git
 git add .
 git commit -m "%des%"
 echo 正在提交:%des%
-git push HexoBuckUp master
+git push origin master
 echo "finished!"
 
 pause>nul
