@@ -16,3 +16,5 @@ pause>nul
 cls & goto input
 
 # 首次执行前需要删除所有.git文件，然后执行git init 以及 git remote add origin git@github.com:E1sewhere/HexoBuckUp
+# 如果本地和远端有冲突，又要本地覆盖远端可以强制push  git push  origin master --force
+
