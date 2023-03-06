@@ -536,8 +536,8 @@ quicklink:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: Elsewhere
   count: true
   lazyload: false
 

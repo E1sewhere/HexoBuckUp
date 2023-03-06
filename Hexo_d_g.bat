@@ -1,3 +1,3 @@
 hexo d -g
 echo "finished!"
-pause
+pause>nul
